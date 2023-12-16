@@ -20,11 +20,61 @@ switch(choice) {
 }//end getComputerChoice function
 
 
-function playGame(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
+let notTie = false;
+
+while(!notTie){
+    if(playerSelection === computerSelection){
+    console.log("Tie! Try Again!!");  
+    playerSelection = playerselection();
+    computerSelection = getComputerChoice();
+}// end if statement
+else if(playerSelection == "Quit"){
+    return 2;
+    // return code for player quitting game
+}// quit sequence
+else{
+    notTie= true;
+    if(playerSelection === "Rock"){
+        if(computerSelection === "Scissors"){
+            console.log("You Win! Rock beats Scissors");
+            return 0;
+            // 0 is the player win code for when  5 rounds are played
+        }// end inner if
+        else{
+            console.log("You Lose! Paper beats Rock");
+            return 1;
+            // 1 is the player lose code for when 5 rounds are played
+        }// end inner else
+    }// end outer if for ps === Rock
+    else if(playerSelection === "Paper"){
+        if(computerSelection === "Rock"){
+            console.log("You Win! Paper beats Rock");
+            return 0; 
+        }// end inner if
+        else{
+            console.log("You Lose! Scissor beats Paper ");
+            return 1;
+        }// end else
+
+    }// end outer if for PS === Paper
+    else{
+        if(playerSelection === "Paper"){
+            console.log("You Win! Scissor beats Paper ");
+            return 0;
+        }
+        else{
+            console.log("You Lose! Rock beats Scissor");
+            return 1;
+        }
+    }// end outer else for PS == Scissors
+}// end else
+
+}// end while loop
 
 
     
-}
+}// end playRound
 
 function playerselection(){
 let input = prompt("Please input Rock, Paper or Scissors. Submit Quit to end game");
@@ -62,5 +112,10 @@ while(!gottaAnswer){
 return input;
 }
 
-let player = playerselection();
+
+let player =playerselection()
+let computer = getComputerChoice();
+let game= playRound(player, computer);
 console.log(player);
+console.log(computer);
+console.log(game);
