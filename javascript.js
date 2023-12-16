@@ -19,5 +19,48 @@ switch(choice) {
 
 }//end getComputerChoice function
 
-let opponent = getComputerChoice();
-console.log(opponent);
+
+function playGame(playerSelection, computerSelection){
+
+
+    
+}
+
+function playerselection(){
+let input = prompt("Please input Rock, Paper or Scissors. Submit Quit to end game");
+
+input = input.toLowerCase();
+//console.log(input);
+let gottaAnswer = false;
+while(!gottaAnswer){
+    switch(input) {
+        case "rock":
+          return "Rock";
+          break;
+        case "scissors":
+          return "Scissors";
+          break;
+        case "paper":
+          return "Paper";
+          break;
+          case "quit":
+          console.log("You have Quit the Game")
+          gottaAnswer = true;
+          return "Quit";
+          break;
+        default:
+            alert("Something went wrong... lets try again");
+            input = prompt("Please input Rock, Paper or Scissors. Submit Quit to end game");
+            input = input.toLowerCase;
+
+      }// end switch statment
+
+
+}// end while loop 
+
+
+return input;
+}
+
+let player = playerselection();
+console.log(player);
