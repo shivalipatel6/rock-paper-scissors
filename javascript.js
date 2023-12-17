@@ -64,7 +64,7 @@ else{
             return 0;
         }
         else{
-            console.log("You Lose! Rock beats Scissor");
+            console.log("You Lose! Rock beats Scissors");
             return 1;
         }
     }// end outer else for PS == Scissors
@@ -83,6 +83,7 @@ input = input.toLowerCase();
 //console.log(input);
 let gottaAnswer = false;
 while(!gottaAnswer){
+    //ockalert("hello");
     switch(input) {
         case "rock":
           return "Rock";
@@ -100,11 +101,11 @@ while(!gottaAnswer){
           break;
         default:
             alert("Something went wrong... lets try again");
-            input = prompt("Please input Rock, Paper or Scissors. Submit Quit to end game");
-            input = input.toLowerCase;
-
+           break;
       }// end switch statment
 
+      input = prompt("Please input Rock, Paper or Scissors. Submit Quit to end game");
+      input = input.toLowerCase();
 
 }// end while loop 
 
@@ -112,10 +113,37 @@ while(!gottaAnswer){
 return input;
 }
 
+function playGame(){
+let playerwins = 0;
+let computerwins =0;
+let game;
+for(let i = 0; i < 5; i++){
+ game = playRound(playerselection(), getComputerChoice());
 
-let player =playerselection()
-let computer = getComputerChoice();
-let game= playRound(player, computer);
-console.log(player);
-console.log(computer);
-console.log(game);
+if(game === 0){
+playerwins++;
+}// player win
+else if(game === 1){
+    computerwins++;
+}// computer wins
+else{
+    console.log("You Quit So You Lose!")
+    return;
+}// player quits
+
+}// end for loop
+
+if(playerwins > computerwins){
+    console.log("You have won " + playerwins + " out of 5 rounds! You win the game!" )
+}// player wins over all
+else{
+    console.log("You have lost " + computerwins + " out of 5 rounds. You have lost the game!")
+}
+
+
+
+}// end playGame
+
+
+
+playGame();
